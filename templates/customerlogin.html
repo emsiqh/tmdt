@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Khách hàng đăng nhập{% endblock %}
+
+{% block content %}
+<style>
+    .errorlist {
+        color: red;
+    }
+</style>
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 50px">
+        <!-- <h1 class="font-weight-semi-bold text-uppercase mb-3"></h1>
+        <h1 class="font-weight-semi-bold text-uppercase mb-3" style="font-size: 25px">Đăng nhập</h1> -->
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto" style="background-color: #F5F5F5; padding: 20px; border-radius: 25px;">
+            {% comment %} <div style="text-align:center;">
+                <h3>Đăng nhập</h3>
+            </div> {% endcomment %}
+            <h1 class="font-weight-semi-bold text-uppercase mb-3" style="font-size: 25px; text-align: center;">Đăng nhập
+            </h1>
+            <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <div style="text-align:center;">
+                    <button class="btn btn-primary" style="border-radius: 10px;">Đăng nhập</button>
+                    <div>
+                        {% if error %}
+                        <li style="color: red;">{{error}}</li>
+                        {% endif %}
+            </form>
+            {% comment %} <p>Quên mật khẩu?<a href="{% url 'ecomapp:passworforgot' %}">Lấy lại mật khẩu.</a></p>
+            {% endcomment %}
+            <br />
+            <div style="text-align:center;">
+                <p> Bạn không có tài khoản? <a
+                        href="{% url 'ecomapp:customerregistration' %}{% if request.GET.next %}?next={{request.GET.next}}{% endif %}">Đăng
+                        ký</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
